@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, TextInput } from 'react-native';
-import HomeAi from './Components/HomeAi'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import HomeAi from './Components/HomeAi';
+import Summary from './Components/Summery';
+const App: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [currentScreen, setCurrentScreen] = useState<'home' | 'summary'>('home');
 
-const App = () => {
+  const languages: string[] = ['HTML', 'CSS', 'Python', 'Ruby', 'JavaScript', 'Java', 'Swift', 'PHP', 'Angular', 'C++', 'React', 'Vue'];
 
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const languages = ['HTML', 'CSS', 'Python', 'Ruby', 'JavaScript', 'Java', 'Swift', 'PHP', 'Angular', 'C++', 'React', 'Vue',];
-  return (
+  const renderHomeScreen = () => (
     <View style={styles.container}>
       <Text style={styles.header}>Code Genius</Text>
       <ScrollView contentContainerStyle={styles.suggestedContainer}>
         <View style={styles.cardRow}>
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity style={styles.card} onPress={() => setCurrentScreen('summary')}>
             <Text style={styles.cardText}>Summary</Text>
             <Text style={styles.cardSubText}>Summarize the code</Text>
           </TouchableOpacity>
@@ -42,9 +43,6 @@ const App = () => {
           </TouchableOpacity>
         </View>
 
-
-        {/* Popular language */}
-
         <View style={styles.searchContainer}>
           <Text style={styles.popularSearchesTitle}>Popular searches</Text>
 
@@ -59,39 +57,17 @@ const App = () => {
             {/* Add more language buttons here */}
           </View>
         </View>
-
-        <View style={styles.explainContainer}>
-          <Text style={styles.explainText}>Explain & Clarify</Text>
-          <View style={styles.explainBox}>
-            <Text style={styles.explainQuestion}></Text>
-            <Image source={{ uri: 'https://example.com/flashlight-icon.png' }} style={styles.flashlightIcon} />
-          </View>
-        </View>
-
-        {/* <View style={styles.homeAi}>
-        </View> */}
-
       </ScrollView>
 
-      {/* <Text>hi</Text> */}
       <View style={styles.HomeAi}>
         <HomeAi />
       </View>
-      {/* <View style={styles.searchSection}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search code snippets"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          placeholderTextColor={'#000'}
-          
-          />
-          <TouchableOpacity>
-          <Text style={styles.backArrow}>🔎</Text>
-          </TouchableOpacity>
-          </View> */}
+    </View>
+  );
 
-
+  return (
+    <View style={styles.container}>
+      {currentScreen === 'home' ? renderHomeScreen() : <Summary onBack={() => setCurrentScreen('home')} />}
     </View>
   );
 };
@@ -133,53 +109,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'lightgrey',
   },
-  explainContainer: {
-    marginTop: 20,
-  },
-  explainText: {
-    fontSize: 18,
-    color: 'white',
-    marginBottom: 10,
-  },
-  explainBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#444',
-    borderRadius: 10,
-    padding: 10,
-  },
-  explainQuestion: {
-    flex: 1,
-    color: 'white',
-  },
-  flashlightIcon: {
-    width: 20,
-    height: 20,
-  },
   searchContainer: {
     flex: 1,
     borderRadius: 20,
     backgroundColor: '#D5C7BC',
-    marginTop: 20
-  },
-
-  searchSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-  },
-  backArrow: {
-    fontSize: 24,
-    color: '#000',
-    paddingRight: 10,
-  },
-  searchInput: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 20,
-    padding: 10,
-    backgroundColor: '#D5C7BC'
+    marginTop: 20,
   },
   languageContainer: {
     flexDirection: 'row',
@@ -201,15 +135,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 10,
   },
-
   HomeAi: {
-    // // width:400,
-    // borderRadius:20,
-    // width:'auto',
-    // // bottom:0,
-
-
-  }
+    // Your styles for the HomeAi component
+  },
 });
 
 export default App;
