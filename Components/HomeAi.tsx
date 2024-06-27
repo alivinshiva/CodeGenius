@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, KeyboardAvoidingView, ActivityIndicator } from 'react-native';
 import { Platform, Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
@@ -10,7 +10,6 @@ const HomeAi = () => {
     //     HarmCategory,
     //     HarmBlockThreshold,
     //   } = require("@google/generative-ai");
-    const apiKey = ""
     const genAI = new GoogleGenerativeAI(apiKey);
 
     const model = genAI.getGenerativeModel({
@@ -93,7 +92,12 @@ const HomeAi = () => {
                         </TouchableOpacity>
                     )}
                     <ScrollView style={styles.response}>
-                        {loading && <Text style={styles.loadingText}>Loading...</Text>}
+                        {loading &&
+                            <View style={styles.loadingContainer}>
+                                <ActivityIndicator size="large" color="#000000" />
+                                <Text style={styles.loadingText}>Loading...</Text>
+                            </View>
+                        }
                         {error && <Text style={styles.errorText}>{error}</Text>}
                         {response && (
                             <View style={styles.responseContainer}>
@@ -168,6 +172,10 @@ const styles = StyleSheet.create({
     loadingText: {
         fontSize: 18,
         color: 'black',
+    },
+    loadingContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     errorText: {
         marginTop: 20,
