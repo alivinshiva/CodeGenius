@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Keyboa
 
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 
-interface SummaryProps {
+interface codeProps {
   onBack: () => void;
 }
 
-const Summary: React.FC<SummaryProps> = ({ onBack }) => {
+const CodeSnippets: React.FC<codeProps> = ({ onBack }) => {
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
@@ -266,4 +266,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Summary;
+export default CodeSnippets;

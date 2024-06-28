@@ -10,6 +10,7 @@ const HomeAi = () => {
     //     HarmCategory,
     //     HarmBlockThreshold,
     //   } = require("@google/generative-ai");
+
     const genAI = new GoogleGenerativeAI(apiKey);
 
     const model = genAI.getGenerativeModel({
@@ -88,7 +89,7 @@ const HomeAi = () => {
                 <ScrollView contentContainerStyle={styles.container}>
                     {response && (
                         <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-                            <Text style={styles.backButtonText}>Back</Text>
+                            <Text style={styles.backButtonText}>back</Text>
                         </TouchableOpacity>
                     )}
                     <ScrollView style={styles.response}>
@@ -111,7 +112,7 @@ const HomeAi = () => {
                             </TouchableOpacity>
                         )} */}
                     </ScrollView>
-                    <View style={styles.searchSection}>
+                    {/* <View style={styles.searchSection}>
                         <TextInput
                             style={styles.searchInput}
                             placeholder="Search code snippets"
@@ -122,7 +123,7 @@ const HomeAi = () => {
                         <TouchableOpacity onPress={handleSearch}>
                             <Text style={styles.searchArrow}>🔎</Text>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
                 </ScrollView>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
