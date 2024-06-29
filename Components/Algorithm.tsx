@@ -7,7 +7,7 @@ interface codeProps {
   onBack: () => void;
 }
 
-const CodeSnippets: React.FC<codeProps> = ({ onBack }) => {
+const Algorithm: React.FC<codeProps> = ({ onBack }) => {
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
@@ -236,4 +236,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CodeSnippets;
+export default Algorithm;

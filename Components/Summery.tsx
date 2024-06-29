@@ -112,37 +112,7 @@ const Summary: React.FC<SummaryProps> = ({ onBack }) => {
                 <TouchableOpacity>
 
                   <View style={styles.responseContainer}>
-                    <Text style={styles.responseText}>"Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open.Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open.Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open.Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open.Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open.Explanation of Changes:
-                      KeyboardAvoidingView: Adjusted the behavior to handle both iOS and Android platforms.
-                      TouchableWithoutFeedback: Used to dismiss the keyboard when clicking outside the input fields.
-                      searchSectionContainer: Added a new View to wrap the searchSection and ensure it stays at the bottom with padding adjustments for iOS and Android.
-                      scrollViewContainer: Ensured the ScrollView can expand and handle larger content.
-                      These changes will ensure that the searchSection stays at the bottom when the keyboard is closed and remains accessible when the keyboard is open."</Text>
+                    <Text style={styles.responseText}>{response}</Text>
                   </View>
                 </TouchableOpacity>
 

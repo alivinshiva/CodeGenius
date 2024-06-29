@@ -17,7 +17,7 @@ const App: React.FC = () => {
             <Text style={styles.cardText}>Summary</Text>
             <Text style={styles.cardSubText}>Summarize the code</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card} >
+          <TouchableOpacity style={styles.card} onPress={() => setCurrentScreen('summary')}>
             <Text style={styles.cardText}>Code Snippets</Text>
             <Text style={styles.cardSubText}>HTML, CSS, Python, etc</Text>
           </TouchableOpacity>
